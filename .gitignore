@@ -1,0 +1,21 @@
+# Archivos de configuración privada
+.env
+*.env
+note.txt
+
+# Binaries Go
+*.exe
+*.dll
+*.so
+*.test
+
+# Carpeta de builds opcional
+/build/
+dist/
+
+# Archivos temporales de Go
+*.out
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
