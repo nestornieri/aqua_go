@@ -33,7 +33,7 @@ type User struct {
 	Email     *string   `json:"email,omitempty"`
 	NumDoc    *string   `json:"num_doc,omitempty"`
 	IsActive  bool      `json:"is_active"`
-	CreatedAt time.Time `json:"created_at"`
+	CreatedAt sql.NullTime `json:"created_at"`
 }
 
 type Address struct {
@@ -85,9 +85,9 @@ type Order struct {
 	DeliveryFee      float64    `json:"delivery_fee"`
 	Total            float64    `json:"total"`
 	Notes            *string    `json:"notes,omitempty"`
-	ScheduledAt      *time.Time `json:"scheduled_at,omitempty"`
-	DeliveredAt      *time.Time `json:"delivered_at,omitempty"`
-	CreatedAt        time.Time  `json:"created_at"`
+	ScheduledAt      sql.NullTime  `json:"schedule_at"`
+	DeliveredAt      sql.NullTime  `json:"delivered_at"`
+	CreatedAt        sql.NullTime  `json:"created_at"`
 }
 
 type OrderWithItems struct {
@@ -113,7 +113,7 @@ type StatusHistory struct {
 	OldStatus *string   `json:"old_status,omitempty"`
 	NewStatus string    `json:"new_status"`
 	ChangedBy int64     `json:"changed_by"`
-	ChangedAt time.Time `json:"changed_at"`
+	ChangedAt  sql.NullTime  `json:"changed_at"`
 	Note      *string   `json:"note,omitempty"`
 }
 
@@ -159,7 +159,7 @@ type CreateOrderReq struct {
 	CustomerID  int64          `json:"customer_id"`
 	AddressID   int64          `json:"address_id"`
 	Items       []OrderItemReq `json:"items"`
-	ScheduledAt *time.Time     `json:"scheduled_at"`
+	ScheduledAt  sql.NullTime  `json:"scheduled_at"`
 	Notes       *string        `json:"notes"`
 }
 
